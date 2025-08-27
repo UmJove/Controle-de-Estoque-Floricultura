@@ -1,4 +1,7 @@
 from Produto import Produto
+from Funcionario import Funcionario
+import sys
+
 # instanciação de produtos para testes # enquanto não há permanencia de dados
 p1 = Produto(1, "Rosas Brancas", 24.90, 20)
 p2 = Produto(2, "Rosas Vermelhas", 29.90, 10)
