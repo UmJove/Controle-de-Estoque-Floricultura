@@ -12,8 +12,9 @@ Desenvolvimento de um sistema de gerenciamento de insumos de uma Floricultura, c
 
 ### Fluxo da aplicação:
 
-1. Verificação de usuários autorizados (a implementar)
+1. Verificação de usuários autorizados:
     - Login
+        - Se gerente - Cadastrar novo funcionário *  **_(a implementar)_**
 2. Menu de navegação
     1. Listar produtos
     2. Cadastrar novo produto
@@ -21,29 +22,38 @@ Desenvolvimento de um sistema de gerenciamento de insumos de uma Floricultura, c
     4. Excluir produto
     5. Registrar chegada de insumos
     6. Calcular promoção
-    7. Verificar estoque* (a implementar)
+    7. Verificar estoque* **_(a implementar)_**
     8. Sair  
-    _ Verificar validade de produtos * (a implementar)  
-    _ Verificar viabilidade de entrega * (a implementar)
+    _ Verificar validade de produtos * **_(a implementar)_**  
+    _ Verificar viabilidade de entrega * **_(a implementar)_**
 
 ### Classes utilizadas:
-- ### Produto - Superclasse 
-    **Atributos:** ID - Nome - Preço - Quantidade em estoque 
+- ### Produto 
+    **Atributos:** ID + Nome + Preço + Quantidade em estoque 
     **Métodos:**
     - Registro de chegada de insumo;
     - Calculo de preço promocional;
-    - Verificação de estoque e necessidade de reposição* (a implementar);
+    - Verificação de estoque e necessidade de reposição* **_(a implementar)_**;
     - Getters e setters;
 
-- ### Subclasse - Flores(Produtos)
-    **Atributos:**  Herdados - Tempo de vida útil - Data da colheita
+- ### Flor(Produto)
+    **Atributos:**  Atributos herdados + Tempo de vida útil + Data da colheita  
     **Métodos:**
-    - Herdados
+    - Métodos herdados
     - Verificar viabilidade entrega
     - Getters e setters;
-- ### Classe Funcionários* (A implementar): 
-    **Atributos:**  
+
+- ### Funcionario    
+    **Atributos:**  id + nome + senha  
     **Métodos:**
+    - Login
+    - Getters e setters;
+
+- ### Gerente(Funcionario)
+    **Atributos:** Atributos herdados + cargo="gerente"
+    **Métodos:**  
+    - Métodos herdados
+    - Cadastrar Funcionario * **_(a implementar)_**
 
 ## Requisitos propostos na atividade (resumo)
 1. Classes e Estrutura

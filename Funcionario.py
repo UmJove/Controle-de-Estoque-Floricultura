@@ -41,9 +41,6 @@ class Gerente(Funcionario):
         pass
 
 
-
-
-
 ### testes
 if __name__ == "__main__":
     funcionario_1 = Funcionario("001", "Angelo", "Abc1")
