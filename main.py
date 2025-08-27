@@ -1,6 +1,14 @@
 from Produto import Produto
 from Funcionario import Funcionario
 import sys
+# instanciação de funcionários para testes de login # enquanto não há permanencia de dados
+f1 = Funcionario("001","Angelo", "Abc1")
+f2 = Funcionario("002","Berenice", "Bcd1")
+f3 = Funcionario("003","Carlota", "Cde1")
+f4 = Funcionario("004","Dolores", "Def1")
+f5 = Funcionario("005","Emílio", "Efg1")
+
+funcionarios = [f1, f2, f3, f4, f5]
 
 # instanciação de produtos para testes # enquanto não há permanencia de dados
 p1 = Produto(1, "Rosas Brancas", 24.90, 20)
@@ -14,7 +22,30 @@ p7 = Produto(7, "Muda de Jasmim", 9.90, 0)
 produtos = [p1,p2,p3,p4,p5,p6,p7] 
 estoque_dados = {} # dados tratados para implementação de salvamento 
 
-def menu(): 
+def menu_login():
+    print("\nVerificação de usuário\n")
+    while True:
+        id_input = input("ID: ")
+        senha_input = input("Senha: ")
+        
+        # Para sair do loop sem ter que fechar o terminal >> deixe os campos em branco
+        if id_input == "" and senha_input == "":
+            return sair()
+        
+        try:
+            for f in funcionarios:
+                if f.login(id_input, senha_input) == True:
+                    print(f"\n>> Acesso autorizado {f.get_nome()}")
+                    return f
+            raise ValueError("ID ou senha invalido(s)!")
+        
+        except ValueError as e:
+            print(f"\n>> Acesso negado!\
+                  \n>> {e}\
+                  \n\nTente novamente ou pressione [Enter] 2x para sair.")
+            continue
+
+def menu():
     while True:
         print("\n--- Menu ---")
         print("1. Listar produtos em estoque")
@@ -158,12 +189,16 @@ def verificar_estoque():
             continue
 
 def inicio():
+    print(f"Nome: {f_logado.get_nome()} | ID: {f_logado.get_id()}")
     print("\nCONTROLE DE ESTOQUE")
     menu()
     
 def sair():
     print("Encerrando o sistema. Até logo!")
-    exit()
+    sys.exit()
+
+# Login e definição de usuário
+f_logado = menu_login()
 
 # Iniciar o sistema
 inicio()
