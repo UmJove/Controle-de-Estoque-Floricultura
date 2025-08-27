@@ -5,7 +5,7 @@ class Funcionario:
         self._senha = senha
     
     def login(self, id_input, senha_input):
-        if id_input == self.id and senha_input == self.senha:
+        if id_input == self._id and senha_input == self._senha:
             return True
         else:
             return False
@@ -33,10 +33,11 @@ class Funcionario:
         return True
     
 class Gerente(Funcionario):
-    def __init__(self, id, nome, senha, cargo):
+    def __init__(self, id, nome, senha):
         super().__init__(id, nome, senha)
         self.cargo = "Gerente"
     def cadastrar_funcionario(self):
+        
         pass
 
 
@@ -54,6 +55,9 @@ if __name__ == "__main__":
 
             if funcionario_1.login(id_input,senha_input) == True:
                 print("\n>> Acesso autorizado")
+                break
+            ## Para sair do loop sem ter que fechar o terminal >> deixe os campos em branco
+            elif id_input == "" and senha_input == "":
                 break
             else:
                 raise ValueError("ID ou senha invalido(s)!")
